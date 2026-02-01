@@ -75,6 +75,81 @@ class OverlayManager {
   constructor() {
     this.overlay = null;
     this.isVisible = false;
+    this.autoHideTimer = null;
+    this.autoHideRemaining = 7000;
+    this.autoHideStartTime = 0;
+  }
+
+  /**
+   * Start auto-hide timer
+   */
+  startAutoHideTimer() {
+    this.stopAutoHideTimer();
+    this.autoHideRemaining = 7000;
+
+    // Set animation
+    if (this.overlay) {
+      const progressBar = this.overlay.querySelector('.answerfinder-progress-bar');
+      if (progressBar) {
+        // Reset animation by triggering reflow
+        progressBar.style.animation = 'none';
+        progressBar.offsetHeight; /* trigger reflow */
+        progressBar.style.animation = 'answerfinder-progress 7s linear forwards';
+      }
+    }
+
+    this.resumeAutoHideTimer();
+  }
+
+  /**
+   * Stop auto-hide timer
+   */
+  stopAutoHideTimer() {
+    if (this.autoHideTimer) {
+      clearTimeout(this.autoHideTimer);
+      this.autoHideTimer = null;
+    }
+  }
+
+  /**
+   * Pause auto-hide timer
+   */
+  pauseAutoHideTimer() {
+    if (this.autoHideTimer) {
+      clearTimeout(this.autoHideTimer);
+      this.autoHideTimer = null;
+
+      // Calculate remaining time
+      const elapsed = Date.now() - this.autoHideStartTime;
+      this.autoHideRemaining -= elapsed;
+      if (this.autoHideRemaining < 0) this.autoHideRemaining = 0;
+
+      // Pause animation
+      if (this.overlay) {
+        const progressBar = this.overlay.querySelector('.answerfinder-progress-bar');
+        if (progressBar) {
+          progressBar.style.animationPlayState = 'paused';
+        }
+      }
+    }
+  }
+
+  /**
+   * Resume auto-hide timer
+   */
+  resumeAutoHideTimer() {
+    if (this.autoHideRemaining > 0 && !this.autoHideTimer) {
+      this.autoHideStartTime = Date.now();
+      this.autoHideTimer = setTimeout(() => this.hideOverlay(), this.autoHideRemaining);
+
+      // Resume animation
+      if (this.overlay) {
+        const progressBar = this.overlay.querySelector('.answerfinder-progress-bar');
+        if (progressBar) {
+          progressBar.style.animationPlayState = 'running';
+        }
+      }
+    }
   }
 
   /**
@@ -95,6 +170,9 @@ class OverlayManager {
     // Add to page
     document.body.appendChild(this.overlay);
     this.isVisible = true;
+
+    // Start auto-hide timer
+    this.startAutoHideTimer();
 
     // Add event listeners
     this.setupEventListeners();
@@ -135,6 +213,7 @@ class OverlayManager {
         <div class="answerfinder-footer">
           <button class="answerfinder-copy" title="Copy answer">Copy</button>
         </div>
+        <div class="answerfinder-progress-bar"></div>
       `;
     } else {
       overlay.innerHTML = `
@@ -147,6 +226,7 @@ class OverlayManager {
             ${result.message || 'No answer found for your query.'}
           </div>
         </div>
+        <div class="answerfinder-progress-bar"></div>
       `;
     }
 
@@ -185,10 +265,14 @@ class OverlayManager {
     }
 
     // Click outside to close
-    document.addEventListener('click', this.handleOutsideClick.bind(this));
+    document.addEventListener('click', this.boundHandleOutsideClick);
 
     // ESC key to close
-    document.addEventListener('keydown', this.handleEscKey.bind(this));
+    document.addEventListener('keydown', this.boundHandleEscKey);
+
+    // Pause/Resume on hover
+    this.overlay.addEventListener('mouseenter', () => this.pauseAutoHideTimer());
+    this.overlay.addEventListener('mouseleave', () => this.resumeAutoHideTimer());
   }
 
   /**
@@ -234,14 +318,15 @@ class OverlayManager {
    * Hide overlay
    */
   hideOverlay() {
+    this.stopAutoHideTimer();
     if (this.overlay) {
       this.overlay.remove();
       this.overlay = null;
       this.isVisible = false;
 
       // Remove event listeners
-      document.removeEventListener('click', this.handleOutsideClick);
-      document.removeEventListener('keydown', this.handleEscKey);
+      document.removeEventListener('click', this.boundHandleOutsideClick);
+      document.removeEventListener('keydown', this.boundHandleEscKey);
     }
   }
 
@@ -480,6 +565,21 @@ style.textContent = `
   
   .answerfinder-copy:hover {
     background: #0056b3;
+  }
+
+  .answerfinder-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: #007bff;
+    width: 100%;
+    transform-origin: left;
+  }
+
+  @keyframes answerfinder-progress {
+    from { width: 100%; }
+    to { width: 0%; }
   }
 `;
 document.head.appendChild(style);
