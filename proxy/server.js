@@ -66,7 +66,7 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // OpenRouter Configuration
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-const MODEL_NAME = 'openai/gpt-3.5-turbo';
+const MODEL_NAME = 'google/gemma-3-27b-it:free';
 
 // Proxy Endpoint
 app.post('/api/query', checkRateLimit, async (req, res) => {
