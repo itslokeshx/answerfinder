@@ -15,7 +15,7 @@ No match? Optional AI (Gemma 2) generates answers for you.
 
 **Perfect for:** Students • Researchers • Developers • Knowledge Workers
 
-[Quick Start](#-quick-start) • [Features](#-key-features) • [How It Works](#-how-it-works) • [FAQ](#-faq)
+[Quick Start](#-quick-start) • [Features](#-features) • [How It Works](#-how-it-works) • [Setup](#-setup)
 
 </div>
 
@@ -23,19 +23,19 @@ No match? Optional AI (Gemma 2) generates answers for you.
 
 ## 🚀 Quick Start
 
-### 1. Install Extension
+### Installation (3 Steps)
 
 ```bash
 git clone https://github.com/yourusername/answerfinder.git
 ```
 
-1. Open `chrome://extensions/`
-2. Enable **Developer mode** (top-right)
+1. Open `chrome://extensions/` in Chrome
+2. Enable **Developer mode** (top-right toggle)
 3. Click **Load unpacked** → Select `answerfinder` folder
 
-### 2. Create Q&A File
+### Create Your Q&A Database
 
-**JSON Format** (recommended):
+**JSON Format** (recommended for 100+ questions):
 
 ```json
 [
@@ -44,7 +44,7 @@ git clone https://github.com/yourusername/answerfinder.git
 ]
 ```
 
-**TXT Format** (simple):
+**TXT Format** (simple alternative):
 
 ```text
 What is the capital of France?
@@ -54,119 +54,118 @@ Who wrote Romeo and Juliet?
 William Shakespeare
 ```
 
-> **Note:** Blank line required between each Q&A pair in TXT format
+> **Important:** Blank line required between Q&A pairs in TXT format
 
-### 3. Upload & Use
+### Use It
 
 1. Click extension icon → Upload your file
-2. Select text on any webpage
+2. Select any text on a webpage
 3. Right-click → **"Search Answer"**
-4. Get instant results!
-
-**Optional:** Enable AI in settings for questions not in your database.
+4. View instant results!
 
 ---
 
-## ✨ Key Features
+## ✨ Features
 
-### 🎯 Smart Matching System
-- **4-tier matching:** Exact → Keyword → Fuzzy → Partial
-- **Typo handling:** Finds "Wha is Paris?" for "What is Paris?"
-- **Partial matching:** "capital France" finds "What is the capital of France?"
-- **Lightning fast:** <10ms for most searches
+### 🎯 Smart 4-Tier Matching
+- **Exact Match:** Perfect character match (<1ms, 100% confidence)
+- **Keyword Match:** Matches important words (<5ms, 85-95% confidence)
+- **Fuzzy Match:** Handles typos like "Wha is Paris?" (<10ms, 70-85% confidence)
+- **Partial Match:** Finds "capital France" in full questions (<15ms, 60-75% confidence)
 
-### 🤖 AI-Powered Answers
-- **Gemma 2 AI** generates answers for questions not in your database
-- **Smart reasoning:** AI explains why answers are correct
-- **Cost-effective:** ~$0.0001 per query (nearly free)
-- **Privacy-focused:** Questions sent via secure proxy
-- **Cached results:** Won't ask AI twice for the same question
+### 🤖 AI-Powered Fallback
+- **Gemma 2 AI** answers questions not in your database
+- **Smart reasoning:** Explains why answers are correct
+- **Nearly free:** ~$0.0001 per query
+- **Privacy-focused:** Secure anonymous proxy
+- **Cached results:** Never asks twice for same question
 
 ### 💾 Data Management
-- **Local storage:** All data stays in your browser
-- **No tracking:** Zero analytics or telemetry
-- **Export/Import:** Full data portability
-- **Handles 10,000+ questions** with no performance issues
+- **100% local storage** - data stays in your browser
+- **No tracking** - zero analytics or telemetry
+- **Export/Import** - full data portability
+- **Handles 10,000+ questions** effortlessly
 
 ### 🎨 User Experience
-- **Clean sidebar overlay:** Non-intrusive answer display
-- **Auto-hide:** Answers fade after viewing
-- **Copy button:** One-click answer copying
-- **Confidence scores:** Know how reliable each match is
-- **Context menu:** Right-click to search
+- **Clean sidebar overlay** - non-intrusive display
+- **Auto-hide after viewing** - stays out of your way
+- **One-click copying** - copy answers instantly
+- **Confidence scores** - know match reliability
+- **Context menu integration** - right-click anywhere
 
 ---
 
 ## 🔧 How It Works
 
-### The Matching Process
+### Automatic Matching Process
 
-AnswerFinder uses **4 smart matching tiers** automatically:
-
-| Tier | Method            | What It Does             | Speed | Confidence |
-| ---- | ----------------- | ------------------------ | ----- | ---------- |
-| 1    | **Exact Match**   | Perfect character match  | <1ms  | 100%       |
-| 2    | **Keyword Match** | Matches important words  | <5ms  | 85-95%     |
-| 3    | **Fuzzy Match**   | Handles typos/variations | <10ms | 70-85%     |
-| 4    | **Partial Match** | Incomplete questions     | <15ms | 60-75%     |
-| 5    | **AI Answer**     | Generates new answer     | 2-4s  | Variable   |
-
-### Search Flow
+AnswerFinder tries 4 matching methods automatically, from fastest to most comprehensive:
 
 ```
-Select text → Search database (Tiers 1-4)
-                    ↓
-          Match found in database?
-                    ↓
-            YES → Show answer
-                    ↓
-             NO → AI enabled?
-                    ↓
-    YES → AI generates answer
-                    ↓
-    NO → Suggest enabling AI
+User selects text
+    ↓
+Tier 1: Exact Match (instant)
+    ↓ no match
+Tier 2: Keyword Match (fast)
+    ↓ no match
+Tier 3: Fuzzy Match (typo-tolerant)
+    ↓ no match
+Tier 4: Partial Match (flexible)
+    ↓ no match
+AI enabled? → Generate answer (2-4s)
+    ↓
+Display result with confidence score
 ```
 
-**You don't configure anything** - AnswerFinder automatically tries all matching methods in order, from fastest to most comprehensive.
+**You configure nothing** - it just works!
+
+### Matching Examples
+
+| Your Question | Finds Database Entry | Method |
+|--------------|---------------------|--------|
+| "What is the capital of France?" | Exact same | Exact |
+| "capital of France" | "What is the capital of France?" | Keyword |
+| "What is teh capital of Frence?" | "What is the capital of France?" | Fuzzy |
+| "France capital" | "What is the capital of France?" | Partial |
 
 ---
 
-## 🤖 AI Integration
+## 🤖 AI Setup
 
-### Setup (2 Steps)
+### Enable AI (2 Clicks)
 
-1. Click extension icon → Open popup
+1. Click extension icon
 2. Check ✅ **"Enable AI Answering"**
 
-That's it! Uses default Cloudflare Worker - no API key needed.
+Done! Uses default secure proxy - no API key needed.
 
-### How AI Works
+### AI Details
 
 - **Model:** Google Gemma 2 (fast, accurate, cost-effective)
-- **Privacy:** Questions sent through secure proxy (anonymous)
-- **Cost:** ~$0.0001 per query (nearly free)
-- **Limit:** 100 queries/day
-- **Caching:** Answers saved locally, won't ask AI twice
+- **Privacy:** Anonymous queries through secure Cloudflare Worker
+- **Cost:** ~$0.0001 per query (100 queries ≈ $0.01)
+- **Daily limit:** 100 queries
+- **Caching:** Answers saved locally, never re-queried
 
-### When to Use AI
+### When to Enable AI
 
-**Enable AI if:**
-- ✅ You want complete coverage for any question
-- ✅ Your database is small/incomplete
-- ✅ You need answers for unexpected questions
+✅ **Enable if:**
+- You want complete coverage for any question
+- Your database is small or incomplete
+- You need answers for unexpected questions
 
-**Keep AI disabled if:**
-- ❌ You only want answers from your database
-- ❌ You want 100% control over answers
-- ❌ You're concerned about costs (though minimal)
+❌ **Keep disabled if:**
+- You only want answers from your curated database
+- You want 100% control over content
+- You prefer no external API calls
 
 ---
 
-## 📂 Data Formats
+## 📂 Data Format Guide
 
-### JSON Format (Recommended)
+### JSON (Best for Large Databases)
 
-**Best for:** 100+ questions, special characters, easy editing
+**Advantages:** Handles thousands of entries, supports Unicode, validates easily
 
 ```json
 [
@@ -176,221 +175,111 @@ That's it! Uses default Cloudflare Worker - no API key needed.
   },
   {
     "question": "Who discovered penicillin?",
-    "answer": "Alexander Fleming discovered penicillin in 1928."
+    "answer": "Alexander Fleming in 1928"
   }
 ]
 ```
 
-**Benefits:**
-- ✅ Handles thousands of entries
-- ✅ Supports Unicode, emojis, special characters
-- ✅ Can validate syntax (use [JSONLint](https://jsonlint.com))
-- ✅ Version control friendly
+**Tip:** Validate your JSON at [jsonlint.com](https://jsonlint.com) before uploading
 
-### TXT Format (Simple)
+### TXT (Best for Quick Notes)
 
-**Best for:** Quick notes, <100 questions, simple text
+**Advantages:** Simple to create, no syntax knowledge needed
 
 ```text
 What is the Pythagorean theorem?
 a² + b² = c² - In a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides.
 
 Who discovered penicillin?
-Alexander Fleming discovered penicillin in 1928.
+Alexander Fleming in 1928
 ```
 
-**Rules:**
-- ❗ Question on line 1, answer on line 2
-- ❗ **BLANK LINE** between each Q&A pair
-- ❗ No special formatting needed
+**Rules:** Question line 1, answer line 2, blank line between pairs
 
-### Sample Files
-
-Check `sample_questions.json` and `sample_questions.txt` for examples.
+**Sample files included:** `sample_questions.json` and `sample_questions.txt`
 
 ---
 
-## ⚙️ Settings & Configuration
+## ⚙️ Settings
 
-### Extension Settings
-
-Open popup (click extension icon) to access:
+Click the extension icon to access:
 
 **Enable AI Answering**
-- ✅ Checked: AI generates answers for questions not in database
-- ❌ Unchecked: Only searches your uploaded Q&A database
+- Toggle AI fallback for questions not in database
 
 **Export Data**
-- Downloads your Q&A database as JSON file
-- Format: `answerfinder-export-[timestamp].json`
-- Use for backups, sharing, version control
+- Download your Q&A database as `answerfinder-export-[timestamp].json`
+- Use for backups or sharing
 
 **Clear All Data**
-- Removes ALL uploaded questions and cache
+- Remove all questions and cache
 - ⚠️ **Cannot be undone!** Export first if needed
 
-**Statistics**
-- Questions Loaded: Total Q&A pairs in database
-- Cache Entries: Cached search results
-- Last Import: When you last uploaded a file
+**Statistics Display**
+- Total questions loaded
+- Cached search results
+- Last import timestamp
 
-### Custom AI Backend (Advanced)
-
-Want to host your own AI backend? See [USAGE.md](USAGE.md) for detailed instructions on:
-- Deploying your own Cloudflare Worker
-- Running a local development server
-- Using custom AI models
-- Setting up OpenRouter API
+**Advanced:** Custom AI backend setup instructions in [USAGE.md](USAGE.md)
 
 ---
 
 ## 🎯 Use Cases
 
-### For Students
-Upload flashcards/notes → Study online → Select questions → Get instant answers from your notes
+**Students:** Upload flashcards → Study online → Get instant answers while reading
 
-### For Researchers
-Create Q&A from paper abstracts → Look up terms while reading → AI fills gaps for new concepts
+**Researchers:** Convert paper abstracts to Q&A → Look up terms instantly → AI fills knowledge gaps
 
-### For Developers
-Convert API docs to Q&A → Select function names while coding → Get quick reference without leaving browser
+**Developers:** API docs to Q&A format → Quick reference while coding → No context switching
 
-### For Teams
-Create company FAQ in JSON → Share with team → Everyone has instant access → AI handles uncommon questions
-
----
-
-## ❓ FAQ
-
-**Q: What browsers are supported?**  
-A: Chrome, Edge, Brave, Opera, and other Chromium-based browsers.
-
-**Q: How many questions can I upload?**  
-A: Tested with 10,000+ questions with no performance issues.
-
-**Q: Can I upload multiple files?**  
-A: Currently one file at a time. Export and merge manually if needed.
-
-**Q: Where is my data stored?**  
-A: Locally in your browser only. Nothing sent to external servers (except AI queries if enabled).
-
-**Q: Is it really free?**  
-A: Yes! Extension is free. AI queries cost ~$0.0001 each (nearly free), only if you enable AI.
-
-**Q: How accurate is the AI?**  
-A: Gemma 2 is very accurate for factual questions. Always verify critical information.
-
-**Q: Does it work offline?**  
-A: Local matching works 100% offline. Only AI answering requires internet.
-
-**Q: Can I use it on PDFs?**  
-A: Yes! If you can select text in the PDF, AnswerFinder works.
-
-**Q: Why no matches found?**  
-A: Question might not be in your database, or phrasing is too different. Try enabling AI or rephrase the search.
-
-**Q: How do I update the extension?**  
-A: Pull latest code → Click "Reload" button in `chrome://extensions/`
+**Teams:** Company FAQ in JSON → Share with team → Instant access → AI handles edge cases
 
 ---
 
 ## 🛠️ Troubleshooting
 
-### Extension won't install
-1. ✅ Enable Developer Mode in `chrome://extensions/`
-2. ✅ Select the root `answerfinder` folder containing `manifest.json`
-3. ✅ Try reloading Chrome
+### Extension Won't Load
+- ✅ Enable Developer Mode in `chrome://extensions/`
+- ✅ Select folder containing `manifest.json`
+- ✅ Reload Chrome and try again
 
-### File upload fails
-1. ✅ **For JSON:** Validate at [jsonlint.com](https://jsonlint.com)
-2. ✅ **For TXT:** Ensure blank lines between Q&A pairs
-3. ✅ Check file size (keep under 10MB)
-4. ✅ Verify UTF-8 encoding
+### File Upload Fails
+- ✅ **JSON:** Validate at [jsonlint.com](https://jsonlint.com)
+- ✅ **TXT:** Verify blank lines between Q&A pairs
+- ✅ Keep file under 10MB
+- ✅ Ensure UTF-8 encoding
 
-### No matches found
-1. ✅ Verify file uploaded successfully (check Statistics)
-2. ✅ Try selecting more/less text
-3. ✅ Enable AI as fallback
-4. ✅ Export data to verify content
+### No Matches Found
+- ✅ Check file uploaded (view Statistics)
+- ✅ Try selecting more/less text
+- ✅ Enable AI as fallback
+- ✅ Export data to verify content
 
-### AI not responding
-1. ✅ Verify "Enable AI Answering" is checked
-2. ✅ Check you haven't hit 100 queries today
-3. ✅ Verify internet connection
-4. ✅ Open browser console (F12) → Check for errors
-
-### Slow performance
-1. ✅ Clear cache: Settings → Clear All Data → Re-upload
-2. ✅ Reduce database size
-3. ✅ Restart browser
+### AI Not Responding
+- ✅ Verify "Enable AI Answering" is checked
+- ✅ Check daily limit (100 queries)
+- ✅ Verify internet connection
+- ✅ Check browser console (F12) for errors
 
 ---
 
-## 📊 Technical Architecture
+## ❓ FAQ
 
-### Component Overview
+**Supported browsers?** Chrome, Edge, Brave, Opera (Chromium-based)
 
-```
-┌─────────────────────────────────────────────────────┐
-│                  Browser Extension                   │
-├─────────────────────────────────────────────────────┤
-│                                                       │
-│  ┌─────────────┐  ┌──────────────┐  ┌────────────┐ │
-│  │   Popup UI  │  │  Background  │  │  Content   │ │
-│  │  (Settings) │  │   Service    │  │  Script    │ │
-│  └──────┬──────┘  └──────┬───────┘  └─────┬──────┘ │
-│         │                │                 │         │
-│         │         ┌──────▼──────────┐      │         │
-│         └────────►│  State Manager  │◄─────┘         │
-│                   └──────┬──────────┘                │
-│                          │                           │
-│         ┌────────────────┼────────────────┐          │
-│         │                │                │          │
-│    ┌────▼────┐    ┌──────▼──────┐  ┌─────▼─────┐   │
-│    │  Index  │    │   Matching  │  │    AI     │   │
-│    │   DB    │    │   Engine    │  │  Service  │   │
-│    │ Manager │    │   (4-tier)  │  │           │   │
-│    └─────────┘    └─────────────┘  └─────┬─────┘   │
-│                                           │         │
-└───────────────────────────────────────────┼─────────┘
-                                            │
-                                            ▼
-                                  ┌───────────────────┐
-                                  │ Cloudflare Worker │
-                                  │    (AI Proxy)     │
-                                  └─────────┬─────────┘
-                                            │
-                                            ▼
-                                  ┌───────────────────┐
-                                  │  OpenRouter API   │
-                                  │   (Gemma 2 AI)    │
-                                  └───────────────────┘
-```
+**Question limit?** Tested with 10,000+ questions successfully
 
-### File Structure
+**Multiple files?** One at a time - export and merge manually if needed
 
-```
-answerfinder/
-├── manifest.json                    # Extension configuration
-├── background/
-│   ├── service-worker.js           # Main background script
-│   ├── state-manager.js            # Centralized state
-│   └── msg-handler.js              # Message routing
-├── content/
-│   └── content-script-bundled.js   # Injected into pages
-├── popup/
-│   ├── popup.html                  # Extension popup
-│   ├── popup.css                   # Popup styles
-│   └── popup.js                    # Popup logic
-├── lib/
-│   ├── ai/                         # AI integration
-│   ├── matching/                   # 4-tier matching engine
-│   ├── storage/                    # IndexedDB & caching
-│   └── parsers/                    # JSON/TXT parsers
-└── proxy/
-    ├── server.js                   # Local dev server
-    └── cloudflare-worker/          # Production proxy
-```
+**Data storage?** 100% local in your browser only
+
+**Cost?** Extension is free. AI costs ~$0.0001/query (only if enabled)
+
+**Offline use?** Local matching works offline. AI requires internet.
+
+**PDF support?** Yes! If you can select text, it works.
+
+**Privacy?** No tracking. AI queries are anonymous if enabled.
 
 ---
 
@@ -399,69 +288,59 @@ answerfinder/
 ### Local Setup
 
 ```bash
-# Clone repository
 git clone https://github.com/yourusername/answerfinder.git
 cd answerfinder
-
-# Load extension (no build needed)
-# 1. Open chrome://extensions/
-# 2. Enable Developer Mode
-# 3. Load unpacked → Select folder
+# Load unpacked extension in chrome://extensions/
 ```
 
-### Making Changes
+### File Structure
 
-1. Edit files
-2. Click "Reload" in `chrome://extensions/`
-3. Test changes
-
-### Testing
-
-**Manual Testing:**
-1. Upload test Q&A file
-2. Visit any webpage
-3. Select text → Right-click → Search Answer
-4. Verify answer appears correctly
-
-**Console Testing:**
-- Open DevTools (F12)
-- Check Background worker logs
-- Check Content script logs
+```
+answerfinder/
+├── manifest.json              # Extension config
+├── background/                # Service worker & state
+├── content/                   # Injected scripts
+├── popup/                     # Extension UI
+├── lib/
+│   ├── ai/                   # AI integration
+│   ├── matching/             # 4-tier engine
+│   ├── storage/              # IndexedDB & cache
+│   └── parsers/              # JSON/TXT parsing
+└── proxy/                     # AI backend
+```
 
 ### Contributing
 
-1. Fork repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing`)
+3. Commit changes (`git commit -m 'Add feature'`)
+4. Push branch (`git push origin feature/amazing`)
 5. Open Pull Request
-
-
-## 📝 License
-
-MIT License - See [LICENSE](LICENSE) file for details.
-
-**In short:** You can use, modify, and distribute this extension freely. Attribution appreciated but not required.
 
 ---
 
-## Credits
+## 📝 License
 
-**Built with:**
-- Chrome Extension Manifest V3
-- IndexedDB for local storage
-- OpenRouter API for AI access
-- Cloudflare Workers for serverless backend
-- Google Gemma 2 AI model
+MIT License - See [LICENSE](LICENSE) file
 
-**Inspired by:** The need for instant access to study materials and knowledge bases.
+**Summary:** Use, modify, and distribute freely. Attribution appreciated!
+
+---
+
+##  Credits
+
+**Built with:** Chrome Extension Manifest V3 • IndexedDB • OpenRouter API • Cloudflare Workers • Google Gemma 2 AI
+
+**Inspired by:** The need for instant access to knowledge while browsing
 
 ---
 
 <div align="center">
 
-### Made with ❤️ for Students, Researchers & Knowledge Seekers
+### Made with ❤️ for Knowledge Seekers
 
-**Star ⭐ this repo if you find it useful!**
+**Found it useful? Star ⭐ this repo!**
+
+[Report Bug](https://github.com/yourusername/answerfinder/issues) • [Request Feature](https://github.com/yourusername/answerfinder/issues) • [Contribute](CONTRIBUTING.md)
 
 </div>
