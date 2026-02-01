@@ -1,0 +1,426 @@
+Fill in the blank. A system that helps machines understand cultural knowledge, grammatical structures, and various language nuances is known as what?
+Natural language processing
+
+What is the final step an AI debater system must take?
+Respond to the opponent by listening to the opponent’s arguments and then delivering a convincing rebuttal that refutes the opponent and further proves the case
+
+What term do AI researchers use to describe the collection of text and data they use to train a debater AI system?
+Corpus
+
+Which of the following statements is correct about natural language processing? Select all that apply.
+Human language is complex, so machines require natural language processing systems to understand human language; IBM Project Debater was a major step forward in the field of natural language processing
+
+Which of the following functions can a cognitive AI system perform? Select all that apply.
+Interact, learn, understand, reason
+
+What is sentiment analysis?
+A method to measure the strength of an emotion by assessing data as positive, negative, or neutral
+
+Your friend says, “I really love anchovies and flowers.” How many relationships between entities can you find in this statement?
+Two
+
+You are consulting for a store that wants to know how customers feel about a new product line based on comments in social media. Which tokens are most important for the AI system’s natural language processing to analyze?
+Emotions and sentiment
+
+How does an AI system that is working with human language handle the classification problem?
+It learns from many instances
+
+What type of problem does the following sentence create for an AI system: “Is your refrigerator running?”
+Classification problem
+
+Fill in the blank. A chatbot runs which technology to understand the human’s intentions from typed input?
+Natural language processing
+
+The majority of callers to a local hospital want to make an appointment, cancel an appointment, or get the hospital’s address. Would this be an appropriate use for a chatbot and why?
+Yes, because chatbots are designed for a small set of interaction types
+
+For a chatbot, what is an entity considered within the context of a question?
+A noun
+
+Fill in the blank. A dialog is represented by a diagram that illustrates how a chatbot will respond after a human asks a question. What is this diagram called?
+Flowchart
+
+Which of the following statements best describes how a chatbot processes a question?
+The chatbot breaks inputs apart to identify intents and entities
+
+If a doctor asks you to suggest an AI capability that can help analyze X-rays, which computer vision technology would you suggest?
+Convolutional neural network (CNN)
+
+Which process makes facial recognition possible?
+Convolutional neural network (CNN)
+
+Which of the following would be a good use of computer vision in a self-driving car?
+Detecting a stop sign
+
+If you were a consultant, which of the following applications would you recommend for using computer vision?
+Inspecting robots at work on an assembly line
+
+A generator creates an image of a flower and a discriminator determines if the image is real or fake. This process repeats until the generator fools the discriminator. This illustrates which machine learning model?
+Generative adversarial network (GAN)
+
+FINAL ASSESSMENT — NLP AND COMPUTER VISION
+
+Which of the following is a convolutional neural network used for when an AI system processes images to derive meaning from them?
+Identifying patterns and features in images
+
+Which grammatical term best describes an entity in relation to chatbots?
+Noun
+
+Which of the following describes how chatbots differ from more general AI systems in their capabilities?
+Chatbots are focused on answering specific questions in a limited domain
+
+You are working on a project with two convolutional neural networks competing against each other, one generating data and the other identifying whether it is real or fake. What are you working on?
+Generative adversarial network (GAN)
+
+Which of the following is the messaging channel of a chatbot that interacts with the user who is asking the question?
+Frontend
+
+Which of the following explains how detecting emotions can help an AI system in user interactions?
+It enables the AI to detect when a customer is frustrated or angry and escalate the issue to a human agent
+
+Which of the following processes is used by AI to analyze only small parts of an image at a time, enabling visual recognition systems?
+Convolutional neural network (CNN)
+
+Imagine you want to create a new AI application. Which of the following would be the most suitable use of natural language processing?
+An AI-powered customer service chatbot that can handle complex inquiries and resolve customer issues
+
+Which of the following is the best use of computer vision in a self-driving car?
+Detecting a stop sign
+
+Natural language processing is the field of computer science concerned with which of the following?
+Understanding and manipulating spoken and written language
+
+Which of the following terms is used to describe the reason why a user sends a message in a chatbot?
+Intent
+
+Imagine you are the CEO of a retail company considering chatbots on your website. Which situation is the most appropriate use of a chatbot?
+Answering frequently asked questions about store policy, product availability, and return procedures
+
+Which of the following can be more difficult for an AI system than identifying tokens because it depends heavily on context?
+Entity recognition
+
+When handling unstructured information, computers break sentences into smaller chunks for natural language processing. What is the term for these smaller chunks?
+Tokens
+
+Which of the following statements is correct about supervised learning?
+Supervised learning requires humans to provide labeled data
+
+Katie has a huge amount of warehouse data to sort but does not know how to categorize it. Which type of learning should be used?
+Unsupervised learning
+
+Maria is involved in training the AI for her company. She separates weather data in a database into different categories. What type of learning is she preparing?
+Supervised learning
+
+Pedro is working with a chess-playing AI system. He rewards it when it wins and penalizes it when it loses. What kind of learning is the system experiencing?
+Reinforcement learning
+
+Aditi is training an AI system in which it is penalized for answers that are largely wrong and rewarded for answers that are largely correct. What type of machine learning is she using?
+Reinforcement learning
+
+Which of the following is an advantage of classical machine learning compared to deep learning?
+It is easier to interpret
+
+You are asked to create a machine learning service that helps people choose what concert to attend based on music preference, performer, and location. What type of algorithm should you use?
+Decision tree
+
+Which of the following is an important difference between linear regression and logistic regression?
+Only logistic regression has outputs between 0 and 1
+
+What type of algorithm would help predict how much salary you might earn based on different levels of college education?
+Linear regression
+
+You want to know how many hours to study to pass an exam. The data forms an S-shaped curve between fail and pass. Which learning algorithm could you use?
+Logistic regression
+
+After calculating values, what do neural networks often assign to those values that impact the final result?
+Weights
+
+You are designing a perceptron. Where are the algorithms located that run on the signal and then pass results forward?
+In the hidden layers
+
+What kind of brain cells inspired the creation of neural networks?
+Neurons
+
+Which of the following best demonstrates the concept of machine learning?
+Determining the farthest distance from which an archer can reliably hit bullseyes by repeatedly shooting and adjusting
+
+Fill in the blank. In deep learning, many forms of devices make up the deep learning ecosystem, known as a deep neural network.
+Deep neural network
+
+Which of the following is a limitation of generative AI? Select all that apply.
+Lack of originality in content; Bias in the generated content
+
+Which of the following models does generative AI use to produce content? Select all that apply.
+Variational autoencoders; Generative adversarial networks; Autoregressive models
+
+True or false. A coach could use generative AI to create a customized workout plan for an athlete returning from injury.
+True
+
+Fill in the blank. A distinguishing feature of generative AI is its ability to create new content.
+Create new content
+
+Which of the following is an example of generative AI?
+Composing music
+
+Which concept describes future AI’s ability to improve Earth’s safety, sustainability, and security?
+Instrumented planet
+
+Fill in the blank. In the future, personalization is a capability that will enable AI systems to tailor recommendations and responses to individuals.
+Personalization
+
+Fill in the blank. AI everywhere is a future form of artificial intelligence that will support a wide range of industries.
+AI everywhere
+
+Which one of the following is a new area of research that will extend the abilities of AI systems?
+Quantum computing
+
+What do AI researchers call the type of systems likely to emerge by 2050 and beyond?
+General AI
+
+FINAL ASSESSMENT — MACHINE LEARNING AND DEEP LEARNING
+
+What is the primary source of inspiration for the design of neural networks?
+The structure and function of the human brain and its interconnected neurons
+
+Emma wants to analyze how factors like square footage and neighborhood affect housing prices. Which method would she most likely use?
+Linear regression
+
+Which of the following best describes how machine learning’s trial-and-error learning process works?
+The system continuously tests outcomes and adjusts itself based on patterns
+
+Which of the following encompasses the use of neural networks with multiple hidden layers to analyze complex data?
+Deep learning
+
+In a science fiction story, a ship’s AI thinks just like a human. What type of AI best describes this system?
+General AI
+
+In which scenario would logistic regression most likely be used?
+Predicting the likelihood of customers purchasing a product
+
+Fill in the blank. Deep learning can be differentiated from classical machine learning in that deep learning exclusively uses artificial neural networks.
+Artificial neural networks
+
+Which of the following is a distinguishing feature of generative AI?
+It generates new and original content
+
+Which of the following describes how information flows through the nodes of a perceptron?
+From the input layer through hidden layers to the output layer
+
+Henri loads the rules of the game of Go into an AI system, and it improves by winning and losing games. What type of learning is used?
+Reinforcement learning
+
+In a neural network, which layer is where the activation algorithm is fired?
+Hidden layer
+
+Which of the following is an advantage of classical machine learning compared to deep learning?
+It is easier to interpret
+
+Which technology is revolutionizing industries by improving decision making and personalizing experiences?
+Generative AI
+
+Deep learning models are preferred over classical machine learning models in which situation?
+When working with very large unstructured data sets
+
+As part of a research team, you tag images as “dog” or “not dog.” What type of learning is this?
+Supervised learning
+
+An AI model is systematically giving an advantage or disadvantage to a certain group. This is an issue of which pillar of AI ethics?
+Fairness
+
+Which of the following pillars of AI ethics is most related to an AI model withstanding intentional and unintentional interference?
+Robustness
+
+Fill in the blank. AI ethics is a multidisciplinary field that investigates how to optimize AI’s beneficial impact while reducing unintended or adverse outcomes.
+AI ethics
+
+A trustworthy AI model should allow key facts about that model to be seen very quickly, similar to a nutritional label on food packaging. This is an example of which AI ethics pillar?
+Transparency
+
+Which of the following pillars of AI ethics is exemplified when anyone can describe how an AI system makes a prediction or recommendation?
+Explainability
+
+Complete the sentence. A group that traditionally receives more favorable outcomes compared to a group that traditionally receives less to no favorable outcomes is called a privileged group.
+Privileged group
+
+When reviewing a list of promotion candidates generated by an AI system, which indicators might suggest unwanted bias? Select all that apply.
+A group receives a systematic disadvantage; A group receives a systematic advantage
+
+Which of the following is true about bias in AI systems?
+Unwanted bias is a systematic error in AI systems that may result in unfair outcomes
+
+According to the graph showing promotion outcomes, which option is correct regarding employee groups?
+White employees belong to a privileged group
+
+Fairness in AI aims to minimize which of the following?
+Unwanted bias
+
+Which of the following best describes a robust AI system?
+The AI system can effectively handle malicious attacks without causing unintentional harm
+
+In a poisoning attack, when does the adversarial attack occur?
+During the training phase
+
+Which of the following are examples of adversarial attacks on an AI system? Select all that apply.
+Evasion; Poisoning
+
+Which of the following are examples of poisoning in the AI context? Select all that apply.
+Modifying AI model architecture, parameters, and logic; Updating features and labels of training data; Injecting malicious samples into training data
+
+Which of the following best describes how adversarial attacks are intentionally carried out on AI systems?
+They attempt to exploit vulnerabilities in AI systems
+
+When developing explanations for the output of an AI model, it is important to remember that explanations must change depending on the user persona.
+Change
+
+Fill in the blank. Interpretability is the degree to which an observer can understand the cause of a decision.
+Interpretability
+
+When doctors use AI to help make a medical diagnosis, which of the following are important? Select all that apply.
+Explainability; Interpretability
+
+Which of the following describes an AI system that everyday people without special AI training can understand?
+Explainable
+
+Which of the following options would be true for the AI system shown in the graphic with very little transparency?
+The AI system has very little explainability
+
+Sheldon is creating an AI recommendation system. Which facts should he share to ensure transparency? Select all that apply.
+What data is collected; Who has access to the data
+
+Complete the sentence. In order to be trustworthy, an AI system must be transparent.
+Transparent
+
+Fill in the blank. Transparency is disclosing information related to data, design decisions, model creation, evaluation, and deployment.
+Transparency
+
+Which of the following business roles contribute to design decisions? Select all that apply.
+Business owner; AI model lead
+
+Which of the following business roles are responsible for data? Select all that apply.
+Data scientist; Data engineer; AI model lead
+
+Annie decides not to collect users’ mailing addresses while building an AI model. Which privacy control is she employing?
+Data minimization
+
+Troy wants to know if a person’s data was used in training an AI model. Which type of attack would this be?
+Membership inference attack
+
+Shirley was arrested for protesting while in college. What type of information does this represent?
+Sensitive personal information
+
+Ahbed wants to apply privacy controls before deploying an AI model. Which controls should he use? Select all that apply.
+Differential privacy; Model anonymization
+
+Which of the following would not be considered personal information?
+A person’s favorite color
+
+FINAL ASSESSMENT — AI ETHICS
+
+Daniel analyzes admission data and notices one group consistently receives more favorable outcomes. What does this suggest?
+Females are a privileged group
+
+Rutherford limits the amount and granularity of personal data collected for an AI system. Which privacy control is he using?
+Data minimization
+
+A grandmother asks why Netflix recommends many romantic comedies, and Netflix explains its reasoning. Which AI ethics pillar is demonstrated?
+Explainability
+
+A team focuses on ensuring equitable treatment of all people. Which area of AI ethics are they addressing?
+Fairness
+
+Which of the following would be considered sensitive personal information that should be removed from patient data?
+Patient name
+
+Uma is responsible for disclosing all information related to data used in an AI system. Which responsibility is this?
+Transparency
+
+Why is Model B more interpretable than Model A?
+Model B’s flow is clear and easy to understand
+
+Which technique adds random noise during training to protect individual privacy?
+Differential privacy
+
+Which business role is responsible for the deployment of AI models?
+AI Ops engineer
+
+Which team is responsible for the algorithms used to train the AI system?
+Model team
+
+Which term describes systematic errors in AI systems that lead to unfair decisions?
+Bias
+
+Which attributes should be excluded from training data to prevent discrimination?
+Protected attributes
+
+An AI model remains accurate despite malicious data being added. Which AI ethics pillar does this demonstrate?
+Robustness
+
+Which of the following would be considered personal information?
+Home address
+
+Which AI ethics area is involved in defending against adversarial noise attacks?
+Robustness
+
+YOUR FUTURE IN AI
+
+You are applying for an entry-level AI job. Which workplace skills should you emphasize?
+Communication and teamwork
+
+Which of the following statements is true about industries employing AI professionals?
+Most industries have already hired or are in the process of hiring AI professionals
+
+Which AI professional specializes in human language and works on voice assistants and speech recognition?
+Natural language processing engineer
+
+In a job interview, which advanced AI technical skills should you describe?
+Python, TensorFlow, and machine learning
+
+What is the primary job role of a business intelligence developer?
+Analyzing complex data and business trends to increase profitability
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
