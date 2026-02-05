@@ -1,376 +1,190 @@
 <div align="center">
 
-<img src="assets/icons/icon128.png" alt="AnswerFinder Logo" width="128" height="128" />
+<img src="assets/icons/icon128.png" alt="AnswerFinder Logo" width="100" />
 
 # AnswerFinder
 
-**Lightning-Fast Q&A Chrome Extension with AI Support**
+**Find Answers Instantly on Any Webpage**
 
-[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](manifest.json)
-[![Platform](https://img.shields.io/badge/platform-Chrome-orange.svg)](https://developer.chrome.com/docs/extensions/mv3/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-
-Upload your Q&A database → Search any text on any webpage → Get instant answers  
-No match? Optional AI (Llama 3.3 70B) generates answers for you.
-
-**Perfect for:** Students • Researchers • Developers • Knowledge Workers
-
-[Quick Start](#-quick-start) • [Features](#-features) • [How It Works](#-how-it-works) • [Setup](#-setup)
+[![Version](https://img.shields.io/badge/version-2.0-7c3aed.svg)](manifest.json)
+[![Chrome](https://img.shields.io/badge/Chrome-Extension-orange.svg)](https://developer.chrome.com/docs/extensions/)
+[![AI](https://img.shields.io/badge/AI-Llama%203.3%2070B-blue.svg)](https://groq.com)
 
 </div>
 
 ---
 
-## 🚀 Quick Start
+## What is AnswerFinder?
 
-### Installation (3 Steps)
+A Chrome extension that helps you find answers quickly:
 
-```bash
-git clone https://github.com/yourusername/answerfinder.git
+- 📚 **Upload your own Q&A** — Import your questions and answers
+- 🔍 **Search anywhere** — Select text on any webpage, right-click to search
+- 🤖 **AI backup** — If no match found, AI generates the answer
+
+---
+
+## 📖 Setup Guide (Step by Step)
+
+### Step 1: Download the Extension
+
+Go to the GitHub page and click **Code** → **Download ZIP**
+
+![Download ZIP](guide/01-download.png)
+
+After downloading, **extract/unzip** the folder to a location you'll remember.
+
+---
+
+### Step 2: Open Chrome Extensions Page
+
+Open Chrome and type this in the address bar:
+
+```
+chrome://extensions
 ```
 
-1. Open `chrome://extensions/` in Chrome
-2. Enable **Developer mode** (top-right toggle)
-3. Click **Load unpacked** → Select `answerfinder` folder
+Then press **Enter**.
 
-### Create Your Q&A Database
+Make sure **Developer mode** is turned **ON** (toggle in top-right corner).
 
-**JSON Format** (recommended for 100+ questions):
+![Extensions Page](guide/02-extensions-page.png)
+
+---
+
+### Step 3: Load the Extension
+
+Click the **"Load unpacked"** button.
+
+![Load Unpacked](guide/03-load-unpacked.png)
+
+---
+
+### Step 4: Select the Folder
+
+Navigate to where you extracted the ZIP file and select the **answerfinder** folder.
+
+![Select Folder](guide/04-select-folder.png)
+
+---
+
+### Step 5: Pin the Extension
+
+Click the **puzzle icon** 🧩 in Chrome's toolbar, then click the **pin icon** 📌 next to AnswerFinder.
+
+Now you can easily access it anytime!
+
+![Pin Extension](guide/05-pin-extension.png)
+
+---
+
+## 🚀 How to Use
+
+### Option A: Upload Your Own Answers
+
+Click the AnswerFinder icon and upload your Q&A file (JSON or TXT format).
+
+![Upload Answers](guide/06-upload-answers.png)
+
+<details>
+<summary>📝 How to create a Q&A file (click to expand)</summary>
+
+**Simple TXT format:**
+
+```
+What is the capital of France?
+Paris
+
+Who invented the telephone?
+Alexander Graham Bell
+```
+
+> Leave a blank line between each question-answer pair
+
+**JSON format (for larger databases):**
 
 ```json
 [
   { "question": "What is the capital of France?", "answer": "Paris" },
-  { "question": "Who wrote Romeo and Juliet?", "answer": "William Shakespeare" }
+  {
+    "question": "Who invented the telephone?",
+    "answer": "Alexander Graham Bell"
+  }
 ]
 ```
 
-**TXT Format** (simple alternative):
+</details>
 
-```text
-What is the capital of France?
-Paris
+---
 
-Who wrote Romeo and Juliet?
-William Shakespeare
-```
+### Option B: Enable AI Answers
 
-> **Important:** Blank line required between Q&A pairs in TXT format
+Don't have a Q&A file? No problem! Turn on **AI Answering** and it will generate answers automatically.
 
-### Use It
+![Enable AI](guide/07-enable-ai.png)
 
-1. Click extension icon → Upload your file
-2. Select any text on a webpage
-3. Right-click → **"Search Answer"**
-4. View instant results!
+---
+
+### Step 6: Search for Answers
+
+1. Go to any webpage with questions
+2. **Select/highlight** the question text with your mouse
+3. **Right-click** and choose **"Search Answer"**
+
+![Select Text](guide/08-select-text.png)
+
+---
+
+### Step 7: View Your Answer
+
+The answer appears in a popup on the right side of the screen!
+
+![View Answer](guide/09-view-answer.png)
 
 ---
 
 ## ✨ Features
 
-### 🎯 Smart 4-Tier Matching
-
-- **Exact Match** — Perfect character match (<1ms, 100% confidence)
-- **Keyword Match** — Matches important words (<5ms, 85-95% confidence)
-- **Fuzzy Match** — Handles typos like "Wha is Paris?" (<10ms, 70-85% confidence)
-- **Partial Match** — Finds "capital France" in full questions (<15ms, 60-75% confidence)
-
-### 🤖 AI-Powered Fallback
-
-- **Llama 3.3 70B** — Meta's most advanced open model for instant answers
-- **Groq Cloud** — Ultra-fast inference (~200 tokens/sec)
-- **Smart reasoning** — Explains why answers are correct
-- **Privacy-focused** — Secure anonymous proxy via Cloudflare
-- **Cached results** — Never asks twice for same question
-
-### 💾 Data Management
-
-- **100% local storage** — Data stays in your browser
-- **No tracking** — Zero analytics or telemetry
-- **Export/Import** — Full data portability
-- **Handles 10,000+ questions** — Effortlessly
-
-### 🎨 User Experience
-
-- **Clean sidebar overlay** — Non-intrusive display
-- **Auto-hide after viewing** — Stays out of your way
-- **One-click copying** — Copy answers instantly
-- **Confidence scores** — Know match reliability
-- **Context menu integration** — Right-click anywhere
-
----
-
-## 🔧 How It Works
-
-### Automatic Matching Process
-
-AnswerFinder tries 4 matching methods automatically, from fastest to most comprehensive:
-
-```
-User selects text
-    ↓
-Tier 1: Exact Match (instant)
-    ↓ no match
-Tier 2: Keyword Match (fast)
-    ↓ no match
-Tier 3: Fuzzy Match (typo-tolerant)
-    ↓ no match
-Tier 4: Partial Match (flexible)
-    ↓ no match
-AI enabled? → Generate answer (2-4s)
-    ↓
-Display result with confidence score
-```
-
-**You configure nothing** - it just works!
-
-### Matching Examples
-
-| Your Question                    | Finds Database Entry             | Method  |
-| -------------------------------- | -------------------------------- | ------- |
-| "What is the capital of France?" | Exact same                       | Exact   |
-| "capital of France"              | "What is the capital of France?" | Keyword |
-| "What is teh capital of Frence?" | "What is the capital of France?" | Fuzzy   |
-| "France capital"                 | "What is the capital of France?" | Partial |
-
----
-
-## 🤖 AI Setup
-
-### Enable AI (2 Clicks)
-
-1. Click extension icon
-2. Check ✅ **"Enable AI Answering"**
-
-Done! Uses default secure proxy - no API key needed.
-
-### AI Details
-
-- **Model** — Meta Llama 3.3 70B Versatile (state-of-the-art open model)
-- **Inference** — Powered by Groq's ultra-fast LPU chips (~200 tokens/sec)
-- **Privacy** — Anonymous queries through secure Cloudflare Worker
-- **Daily limit** — 100 queries per day
-- **Caching** — Answers saved locally, never re-queried
-
-### When to Enable AI
-
-✅ **Enable if:**
-
-- You want complete coverage for any question
-- Your database is small or incomplete
-- You need answers for unexpected questions
-
-❌ **Keep disabled if:**
-
-- You only want answers from your curated database
-- You want 100% control over content
-- You prefer no external API calls
-
----
-
-## 📂 Data Format Guide
-
-### JSON (Best for Large Databases)
-
-**Advantages:** Handles thousands of entries, supports Unicode, validates easily
-
-```json
-[
-  {
-    "question": "What is the Pythagorean theorem?",
-    "answer": "a² + b² = c² - In a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides."
-  },
-  {
-    "question": "Who discovered penicillin?",
-    "answer": "Alexander Fleming in 1928"
-  }
-]
-```
-
-**Tip:** Validate your JSON at [jsonlint.com](https://jsonlint.com) before uploading
-
-### TXT (Best for Quick Notes)
-
-**Advantages:** Simple to create, no syntax knowledge needed
-
-```text
-What is the Pythagorean theorem?
-a² + b² = c² - In a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides.
-
-Who discovered penicillin?
-Alexander Fleming in 1928
-```
-
-**Rules:** Question line 1, answer line 2, blank line between pairs
-
-**Sample files included:** `sample_questions.json` and `sample_questions.txt`
-
----
-
-## ⚙️ Settings
-
-Click the extension icon to access:
-
-### Enable AI Answering
-
-- Toggle AI fallback for questions not in database
-
-### Export Data
-
-- Download your Q&A database as `answerfinder-export-[timestamp].json`
-- Use for backups or sharing
-
-### Clear All Data
-
-- Remove all questions and cache
-- ⚠️ **Cannot be undone!** Export first if needed
-
-### Statistics Display
-
-- Total questions loaded
-- Cached search results
-- Last import timestamp
-
-### Advanced Setup
-
-- Custom AI backend setup instructions in [USAGE.md](USAGE.md)
-
----
-
-## 🎯 Use Cases
-
-### 📚 Students
-
-Upload flashcards → Study online → Get instant answers while reading
-
-### 🔬 Researchers
-
-Convert paper abstracts to Q&A → Look up terms instantly → AI fills knowledge gaps
-
-### 💻 Developers
-
-API docs to Q&A format → Quick reference while coding → No context switching
-
-### 👥 Teams
-
-Company FAQ in JSON → Share with team → Instant access → AI handles edge cases
-
----
-
-## 🛠️ Troubleshooting
-
-### Extension Won't Load
-
-- ✅ Enable Developer Mode in `chrome://extensions/`
-- ✅ Select folder containing `manifest.json`
-- ✅ Reload Chrome and try again
-
-### File Upload Fails
-
-- ✅ **JSON:** Validate at [jsonlint.com](https://jsonlint.com)
-- ✅ **TXT:** Verify blank lines between Q&A pairs
-- ✅ Keep file under 10MB
-- ✅ Ensure UTF-8 encoding
-
-### No Matches Found
-
-- ✅ Check file uploaded (view Statistics)
-- ✅ Try selecting more/less text
-- ✅ Enable AI as fallback
-- ✅ Export data to verify content
-
-### AI Not Responding
-
-- ✅ Verify "Enable AI Answering" is checked
-- ✅ Check daily limit (100 queries)
-- ✅ Verify internet connection
-- ✅ Check browser console (F12) for errors
+| Feature               | Description                                   |
+| --------------------- | --------------------------------------------- |
+| 🎯 **Smart Matching** | Finds answers even with typos or partial text |
+| 🤖 **AI Powered**     | Llama 3.3 70B generates answers when needed   |
+| 💾 **Local Storage**  | Your data stays on your device                |
+| 🔒 **Privacy First**  | No tracking, no analytics                     |
+| ⚡ **Super Fast**     | Results in milliseconds                       |
 
 ---
 
 ## ❓ FAQ
 
-**Supported browsers?**  
-Chrome, Edge, Brave, Opera (Chromium-based)
+**Q: Is it free?**  
+A: Yes, completely free and open source.
 
-**Question limit?**  
-Tested with 10,000+ questions successfully
+**Q: Does it work offline?**  
+A: Yes for your uploaded Q&A. AI features need internet.
 
-**Multiple files?**  
-One at a time - export and merge manually if needed
+**Q: Is my data safe?**  
+A: Yes, all data stays in your browser. Nothing is sent to servers (except AI queries which are anonymous).
 
-**Data storage?**  
-100% local in your browser only
-
-**Cost?**  
-Extension is free. AI costs ~$0.0001/query (only if enabled)
-
-**Offline use?**  
-Local matching works offline. AI requires internet
-
-**PDF support?**  
-Yes! If you can select text, it works
-
-**Privacy?**  
-No tracking. AI queries are anonymous if enabled
+**Q: What browsers are supported?**  
+A: Chrome and Chromium-based browsers (Edge, Brave, etc.)
 
 ---
 
-## 🚀 Development
+## 🆘 Need Help?
 
-### Local Setup
+Having issues? Try these:
 
-```bash
-git clone https://github.com/yourusername/answerfinder.git
-cd answerfinder
-# Load unpacked extension in chrome://extensions/
-```
-
-### File Structure
-
-```
-answerfinder/
-├── manifest.json              # Extension config
-├── background/                # Service worker & state
-├── content/                   # Injected scripts
-├── popup/                     # Extension UI
-├── lib/
-│   ├── ai/                   # AI integration
-│   ├── matching/             # 4-tier engine
-│   ├── storage/              # IndexedDB & cache
-│   └── parsers/              # JSON/TXT parsing
-└── proxy/                     # AI backend
-```
-
-### Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing`)
-3. Commit changes (`git commit -m 'Add feature'`)
-4. Push branch (`git push origin feature/amazing`)
-5. Open Pull Request
-
----
-
-## 📝 License
-
-MIT License - See [LICENSE](LICENSE) file
-
-**Summary:** Use, modify, and distribute freely. Attribution appreciated!
-
----
-
-## Credits
-
-**Built with:** Chrome Extension Manifest V3 • IndexedDB • Groq API • Cloudflare Workers • Meta Llama 3.3 70B
-
-**Inspired by:** The need for instant access to knowledge while browsing
+1. **Reload the extension** — Go to `chrome://extensions` and click the refresh icon
+2. **Check your Q&A file format** — Make sure it follows the format above
+3. **Clear extension data** — Click "Clear Data" in the extension popup
 
 ---
 
 <div align="center">
 
-### Made with ❤️ for Knowledge Seekers
+Made with 💜 by the AnswerFinder Team
 
-**Found it useful? Star ⭐ this repo!**
+**[⬆ Back to Top](#answerfinder)**
 
 </div>
