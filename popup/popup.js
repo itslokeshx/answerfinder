@@ -155,7 +155,6 @@ async function processFile(file) {
     showResult("error", error.message || "Failed to upload file");
   }
 }
-}
 
 function readFile(file) {
   return new Promise((resolve, reject) => {
@@ -204,10 +203,13 @@ async function loadSettings() {
     // Load directly from chrome.storage.local - this is the source of truth
     const stored = await chrome.storage.local.get("settings");
     console.log("[Popup] Raw storage:", stored);
-    
+
     if (stored.settings) {
       aiEnabledEl.checked = stored.settings.aiEnabled === true;
-      console.log("[Popup] AI enabled from storage:", stored.settings.aiEnabled);
+      console.log(
+        "[Popup] AI enabled from storage:",
+        stored.settings.aiEnabled,
+      );
     } else {
       // No settings saved yet, default to off
       aiEnabledEl.checked = false;
@@ -228,11 +230,11 @@ async function saveSettings() {
     const stored = await chrome.storage.local.get("settings");
     const currentSettings = stored.settings || {};
     const newSettings = { ...currentSettings, aiEnabled: aiEnabled };
-    
+
     // Save to chrome.storage.local
     await chrome.storage.local.set({ settings: newSettings });
     console.log("[Popup] Saved to storage:", newSettings);
-    
+
     // Also notify background to update its in-memory state
     try {
       await chrome.runtime.sendMessage({
