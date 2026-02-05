@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "AnswerFinder - Intelligent Q&A Lookup",
   "version": "2.0",
-  "description": "Production-grade offline answer engine with intelligent multi-tier matching for Q&A pairs",
+  "description": "Supercharge your browsing: Instantly search your own Q&A database on any webpage—with blazing-fast AI fallback powered by Llama 3.3 70B for answers when you need them most.",
   "permissions": ["contextMenus", "storage", "activeTab", "scripting"],
   "host_permissions": ["<all_urls>"],
   "background": {

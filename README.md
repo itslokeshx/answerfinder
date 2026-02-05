@@ -4,7 +4,7 @@
 
 # AnswerFinder
 
-**Find Answers Instantly on Any Webpage**
+**Supercharge your browsing: Instantly search your own Q&A database on any webpage—with blazing-fast AI fallback powered by Llama 3.3 70B for answers when you need them most.**
 
 [![Version](https://img.shields.io/badge/version-2.0-7c3aed.svg)](manifest.json)
 [![Chrome](https://img.shields.io/badge/Chrome-Extension-orange.svg)](https://developer.chrome.com/docs/extensions/)
