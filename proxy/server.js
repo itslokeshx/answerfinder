@@ -6,56 +6,9 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configuration
-const RATE_LIMIT_WINDOW = 24 * 60 * 60 * 1000; // 24 hours
-const MAX_REQUESTS_PER_USER = parseInt(process.env.RATE_LIMIT_PER_DAY) || 100;
-
-// In-memory rate limiting (use Redis for production)
-const requestCounts = new Map();
-
 // Middleware
 app.use(cors());
 app.use(express.json());
-
-// Rate Limiting Middleware
-const checkRateLimit = (req, res, next) => {
-  const apiKey = req.headers["x-extension-key"];
-
-  if (!apiKey) {
-    return res.status(401).json({ error: "Missing extension key" });
-  }
-
-  const now = Date.now();
-  const userStats = requestCounts.get(apiKey) || {
-    count: 0,
-    resetTime: now + RATE_LIMIT_WINDOW,
-  };
-
-  if (now > userStats.resetTime) {
-    userStats.count = 0;
-    userStats.resetTime = now + RATE_LIMIT_WINDOW;
-  }
-
-  if (userStats.count >= MAX_REQUESTS_PER_USER) {
-    return res.status(429).json({
-      error: "Daily quota exceeded",
-      retryAfter: userStats.resetTime - now,
-    });
-  }
-
-  userStats.count++;
-  requestCounts.set(apiKey, userStats);
-
-  // Add rate limit info to headers
-  res.setHeader("X-RateLimit-Limit", MAX_REQUESTS_PER_USER);
-  res.setHeader(
-    "X-RateLimit-Remaining",
-    MAX_REQUESTS_PER_USER - userStats.count,
-  );
-  res.setHeader("X-RateLimit-Reset", userStats.resetTime);
-
-  next();
-};
 
 // Health Check
 app.get("/health", (req, res) => {
@@ -79,7 +32,7 @@ const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
 const MODEL_NAME = "llama-3.3-70b-versatile";
 
 // Proxy Endpoint
-app.post("/api/query", checkRateLimit, async (req, res) => {
+app.post("/api/query", async (req, res) => {
   try {
     const { inputs } = req.body;
 
