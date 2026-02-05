@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/icons/icon128.png" alt="AnswerFinder Logo" width="100" />
+<img src="assets/logo.png" alt="AnswerFinder Logo" width="120" />
 
 # AnswerFinder
 
