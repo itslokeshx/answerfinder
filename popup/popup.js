@@ -201,31 +201,50 @@ async function loadStats() {
 
 async function loadSettings() {
   try {
-    const response = await chrome.runtime.sendMessage({
-      type: "GET_SETTINGS",
-      requestId: Date.now().toString(),
-    });
-
-    if (response.type === "RESPONSE") {
-      const settings = response.payload;
-      aiEnabledEl.checked = settings.aiEnabled === true;
+    // Load directly from chrome.storage.local - this is the source of truth
+    const stored = await chrome.storage.local.get("settings");
+    console.log("[Popup] Raw storage:", stored);
+    
+    if (stored.settings) {
+      aiEnabledEl.checked = stored.settings.aiEnabled === true;
+      console.log("[Popup] AI enabled from storage:", stored.settings.aiEnabled);
+    } else {
+      // No settings saved yet, default to off
+      aiEnabledEl.checked = false;
+      console.log("[Popup] No settings in storage, defaulting to off");
     }
   } catch (error) {
     console.error("Failed to load settings", error);
+    aiEnabledEl.checked = false;
   }
 }
 
 async function saveSettings() {
-  const settings = {
-    aiEnabled: aiEnabledEl.checked,
-  };
+  const aiEnabled = aiEnabledEl.checked;
+  console.log("[Popup] Saving aiEnabled:", aiEnabled);
 
   try {
-    await chrome.runtime.sendMessage({
-      type: "UPDATE_SETTINGS",
-      payload: settings,
-      requestId: Date.now().toString(),
-    });
+    // Get current settings and merge
+    const stored = await chrome.storage.local.get("settings");
+    const currentSettings = stored.settings || {};
+    const newSettings = { ...currentSettings, aiEnabled: aiEnabled };
+    
+    // Save to chrome.storage.local
+    await chrome.storage.local.set({ settings: newSettings });
+    console.log("[Popup] Saved to storage:", newSettings);
+    
+    // Also notify background to update its in-memory state
+    try {
+      await chrome.runtime.sendMessage({
+        type: "UPDATE_SETTINGS",
+        payload: { aiEnabled: aiEnabled },
+        requestId: Date.now().toString(),
+      });
+      console.log("[Popup] Notified background");
+    } catch (e) {
+      // Background might not be ready, but storage is saved
+      console.log("[Popup] Background notification failed, but storage saved");
+    }
   } catch (error) {
     console.error("Failed to save settings", error);
   }
