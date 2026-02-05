@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Upload your Q&A database → Search any text on any webpage → Get instant answers  
-No match? Optional AI (Gemma 2) generates answers for you.
+No match? Optional AI (Llama 3.3 70B) generates answers for you.
 
 **Perfect for:** Students • Researchers • Developers • Knowledge Workers
 
@@ -76,10 +76,10 @@ William Shakespeare
 
 ### 🤖 AI-Powered Fallback
 
-- **Gemma 2 AI** — Answers questions not in your database
+- **Llama 3.3 70B** — Meta's most advanced open model for instant answers
+- **Groq Cloud** — Ultra-fast inference (~200 tokens/sec)
 - **Smart reasoning** — Explains why answers are correct
-- **Nearly free** — ~$0.0001 per query
-- **Privacy-focused** — Secure anonymous proxy
+- **Privacy-focused** — Secure anonymous proxy via Cloudflare
 - **Cached results** — Never asks twice for same question
 
 ### 💾 Data Management
@@ -145,9 +145,9 @@ Done! Uses default secure proxy - no API key needed.
 
 ### AI Details
 
-- **Model** — Google Gemma 2 (fast, accurate, cost-effective)
+- **Model** — Meta Llama 3.3 70B Versatile (state-of-the-art open model)
+- **Inference** — Powered by Groq's ultra-fast LPU chips (~200 tokens/sec)
 - **Privacy** — Anonymous queries through secure Cloudflare Worker
-- **Cost** — ~$0.0001 per query (100 queries ≈ $0.01)
 - **Daily limit** — 100 queries per day
 - **Caching** — Answers saved locally, never re-queried
 
@@ -361,7 +361,7 @@ MIT License - See [LICENSE](LICENSE) file
 
 ## Credits
 
-**Built with:** Chrome Extension Manifest V3 • IndexedDB • Groq API • Cloudflare Workers • Llama 3.1 70B AI
+**Built with:** Chrome Extension Manifest V3 • IndexedDB • Groq API • Cloudflare Workers • Meta Llama 3.3 70B
 
 **Inspired by:** The need for instant access to knowledge while browsing
 
